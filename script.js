@@ -1,20 +1,20 @@
-const toggle = document.gelElementById('toggle')
-const close = document.gelElementById('close')
-const open = document.gelElementById('open')
-const modal = document.gelElementById('modal')
+const toggle = document.getElementById('toggle');
+const close = document.getElementById('close');
+const open = document.getElementById('open');
+const modal = document.getElementById('modal');
 
-// Toggle Navigation
-toggle.addEventLIstener('click', ()=>
-document.body.classList.toggle('show-nav'));
+// Toggle nav
+toggle.addEventListener('click', () =>
+  document.body.classList.toggle('show-nav')
+);
 
 // Show modal
-open.addEventLIstener('click', ()=> modal.classList.add('show-modal'));
+open.addEventListener('click', () => modal.classList.add('show-modal'));
 
 // Hide modal
-close.addEventLIstener('click', ()=>modal.classList.remove('show-modal'));
+close.addEventListener('click', () => modal.classList.remove('show-modal'));
 
-
-
-
-
-
+// Hide modal on outside click
+window.addEventListener('click', e =>
+  e.target == modal ? modal.classList.remove('show-modal') : false
+);
